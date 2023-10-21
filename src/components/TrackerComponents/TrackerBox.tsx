@@ -13,13 +13,13 @@ export const TrackerBox = ({memo, project, client}: TTrackerBoxProps) => {
     return (
         <div className="border border-gray-500 bg-transparent flex flex-row justify-stretch">
             <div className="w-1/2">
-                <MemoBox memo="Start work on kick."/>
+                <MemoBox memo={memo}/>
             </div>
             <div className="w-1/2">
-                <ProjectBox project="Twitch Dev"/>
+                <ProjectBox project={project}/>
             </div>
             <div className="w-1/2">
-                <ClientBox client="Sportskred"/>
+                <ClientBox client={client}/>
             </div>
         </div>
     )

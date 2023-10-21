@@ -1,5 +1,6 @@
 "use client";
 import { useReducer } from "react";
+import StartIcon from "@/assets/startIcon.svg"
 
 const ACTION_START = "start";
 const ACTION_STOP = "stop";
@@ -51,12 +52,5 @@ export const TrackerButton = ({handleOnClick}: TTrackButtonProps) => {
         handleOnClick(nextAction);
     }
 
-    return (
-        <svg className="hover:scale-110" onClick={handleClick} width="80" height="80" viewBox="0 0 80 80" version="1.1">
-            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                <circle fill={state.color} cx="40" cy="40" r="40"></circle>
-                <polygon fill="#fff" points="34 30 52 40.8341139 34 51"></polygon>
-            </g>
-        </svg>
-    )
+    return <StartIcon className="hover:scale-110" onClick={handleClick} />
 }
