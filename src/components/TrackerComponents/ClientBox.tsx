@@ -1,11 +1,14 @@
 "use client";
-import ClientSvg from "../../assets/clientBuildingIcon.svg"
+import { ClassValue } from "clsx";
+import ClientSvg from "../../assets/svg/clientBuildingIcon.svg"
 import { IconBox } from "../GenericComponents/IconBox"
+import { cn } from "@/utils/css";
 
 type TClientBoxProps = {
-    client: string
+    client: string,
+    className?: ClassValue
 }
 
-export const ClientBox = ({client}: TClientBoxProps) => {
-    return <IconBox text={client} svg={ClientSvg} boxColor="grey-500" boderColor="transparent"/>
+export const ClientBox = ({client, className = ""}: TClientBoxProps) => {
+    return <IconBox className={cn(className)} text={client} svg={<ClientSvg/>} boxColor="gray-100" boderColor="gray-300"/>
 }

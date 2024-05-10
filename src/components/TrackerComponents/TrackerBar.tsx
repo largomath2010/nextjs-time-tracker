@@ -1,6 +1,6 @@
 "use client";
 import { TrackerButton } from "./TrackerButton";
-// import { TrackerBox } from "./TrackerBox";
+import { TrackerBox } from "./TrackerBox";
 
 export const TrackerBar = () => {
 
@@ -9,9 +9,13 @@ export const TrackerBar = () => {
     }
 
     return (
-        <div className={`border border-gray-500 flex flex-row justify-start`}>
-            <TrackerButton handleOnClick={handleOnClick}/>
-            {/* <TrackerBox memo="Working on flask project." client="Sportskred" project="Twitch dev"/> */}
+        <div className={`flex flex-row justify-stretch items-center h-12 border-x-1 mt-4 w-full`}>
+            <div className="h-full flex flex-row justify-start items-center mr-4">
+                <TrackerButton handleOnClick={handleOnClick}/>
+            </div>
+            <div className="w-full h-full flex flex-row justify-start items-center">
+                <TrackerBox className="w-full shadow-sm ml-2 px-2 py-0 h-12" memo="Working on flask project." client="Sportskred" project="Twitch dev"/>
+            </div>
         </div>
     )
 }

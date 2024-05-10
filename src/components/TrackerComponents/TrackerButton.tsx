@@ -1,6 +1,7 @@
 "use client";
 import { useReducer } from "react";
-import StartIcon from "@/assets/startIcon.svg"
+import { ClassValue } from "clsx";
+import { cn } from "@/utils/css";
 
 const ACTION_START = "start";
 const ACTION_STOP = "stop";
@@ -11,10 +12,11 @@ type TTrackerButtonAction = typeof ACTION_START | typeof ACTION_STOP;
 type TTrackerButtonState = {
     color: TTrackerButtonColor,
     isTracking: boolean,
-    nextAction: TTrackerButtonAction
+    nextAction: TTrackerButtonAction,
 }
 export type TTrackButtonProps = {
     handleOnClick: (action: TTrackerButtonAction) => void,
+    className?: ClassValue
 }
 
 const reducer = (state: TTrackerButtonState, action: TTrackerButtonAction): TTrackerButtonState =>  {
@@ -37,7 +39,7 @@ const reducer = (state: TTrackerButtonState, action: TTrackerButtonAction): TTra
 };
 
 
-export const TrackerButton = ({handleOnClick}: TTrackButtonProps) => {
+export const TrackerButton = ({handleOnClick, className = ""}: TTrackButtonProps) => {
 
     const initialState: TTrackerButtonState = {
         color: COLOR_STOP,
@@ -52,5 +54,15 @@ export const TrackerButton = ({handleOnClick}: TTrackButtonProps) => {
         handleOnClick(nextAction);
     }
 
-    return <StartIcon className="hover:scale-110" onClick={handleClick} />
+    return (
+        <svg 
+            onClick={handleClick} width="80" height="80" viewBox="0 0 80 80" version="1.1"
+            className={cn("hover:scale-110", className)}
+        >
+            <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
+                <circle fill={state.color} cx="40" cy="40" r="40"></circle>
+                <polygon fill="#fff" points="34 30 52 40.8341139 34 51"></polygon>
+            </g>
+        </svg>
+    )
 }

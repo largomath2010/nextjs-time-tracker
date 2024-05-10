@@ -1,25 +1,28 @@
 "use client";
+import { ClassValue } from "clsx";
 import { ClientBox } from "./ClientBox";
 import { MemoBox } from "./MemoBox";
 import { ProjectBox } from "./ProjectBox"
+import { cn } from "@/utils/css";
 
 export type TTrackerBoxProps = {
     client: string,
     project: string,
-    memo: string
+    memo: string,
+    className?: ClassValue
 }
 
-export const TrackerBox = ({memo, project, client}: TTrackerBoxProps) => {
+export const TrackerBox = ({memo, project, client, className = ""}: TTrackerBoxProps) => {
     return (
-        <div className="border border-gray-500 bg-transparent flex flex-row justify-stretch">
-            <div className="w-1/2">
-                <MemoBox memo={memo}/>
+        <div className={
+            cn("border border-gray-300 shadow-lg bg-transparent flex flex-row justify-between items-center h-12", className)
+        }>
+            <div className="flex items-center">
+                <MemoBox className="h-10" memo={memo}/>
             </div>
-            <div className="w-1/2">
-                <ProjectBox project={project}/>
-            </div>
-            <div className="w-1/2">
-                <ClientBox client={client}/>
+            <div className="flex flex-row items-center justify-stretch">
+                <ProjectBox className="h-10" project={project}/>
+                <ClientBox className="h-10" client={client}/>
             </div>
         </div>
     )
