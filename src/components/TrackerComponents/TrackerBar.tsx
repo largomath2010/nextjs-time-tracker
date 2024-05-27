@@ -14,7 +14,7 @@ export const TrackerBar = () => {
                 <TrackerButton handleOnClick={handleOnClick}/>
             </div>
             <div className="w-full h-full flex flex-row justify-start items-center">
-                <TrackerBox className="w-full shadow-sm ml-2 px-2 py-0 h-12" memo="Working on flask project." client="Sportskred" project="Twitch dev"/>
+                <TrackerBox className="w-full shadow-sm ml-2 px-2 py-0 h-48px" memo="Working on flask project." client="Sportskred" project="Twitch dev"/>
             </div>
         </div>
     )
