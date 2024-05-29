@@ -15,7 +15,7 @@ export type TTrackerBoxProps = {
 export const TrackerBox = ({memo, project, client, className = ""}: TTrackerBoxProps) => {
     return (
         <div className={
-            cn("border border-gray-300 shadow-lg bg-transparent flex flex-row justify-between items-center h-12", className)
+            cn("border border-gray-300 shadow-lg bg-white flex flex-row justify-between items-center h-[48px]", className)
         }>
             <div className="items-center flex-4">
                 <MemoBox className="h-10" memo={memo}/>
